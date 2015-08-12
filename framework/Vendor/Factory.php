@@ -7,7 +7,7 @@ class Factory
 {
     public static function createDatabase()
     {
-        $obj = new Database();
+        $obj = Database::getInstance();
 
         return $obj;
     }

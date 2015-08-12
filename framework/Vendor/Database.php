@@ -5,6 +5,15 @@ namespace Vendor;
 
 class Database
 {
+    protected static $db;
+    private function __construct()
+    {
+    }
+
+    public static function getInstance()
+    {
+        return self::$db ? : new self();
+    }
     public function where($where)
     {
         return $this;
