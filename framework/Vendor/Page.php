@@ -10,7 +10,7 @@ class Page
     {
         echo "AD:";
         $this->strategy->showAdd();
-        echo "<br>";
+        echo "<br>"
         echo "Content:";
         $this->strategy->showCategory();
     }

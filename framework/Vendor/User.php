@@ -32,6 +32,7 @@ class User
                regtime="%s"
                WHERE id= %d';
         $sql = sprintf($sql, $this->username, $this->email, $this->regtime, $this->id);
+        echo $sql . '<br>';
         $this->db->query($sql);
     }
 
