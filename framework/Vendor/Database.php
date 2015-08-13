@@ -2,7 +2,6 @@
 
 namespace Vendor;
 
-
 class Database
 {
     protected static $db;
