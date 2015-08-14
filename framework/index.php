@@ -3,25 +3,32 @@ define('BASEDIR', __DIR__);
 include BASEDIR . '/' . '/Vendor/Loader.php';
 spl_autoload_register('\\Vendor\\Loader::autoload');
 
-// 用到了三种设计模式： 数据对象映射模式，工厂模式和注册器模式
-class Page
+// 观察者模式
+class Event extends \Vendor\EventGenerator
 {
-    public function index()
+    public function trigger()
     {
-        $user = \Vendor\Factory::getUser(1);
-        $user->username = 'sherry';
-        var_dump($user);
-        $this->test();
-    }
-
-    public function test()
-    {
-        $user = \Vendor\Factory::getUser(1);
-        $user->email = 'sunny@example.com';
-        var_dump($user);
+        echo 'hello<br>';
+        $this->notify();
     }
 }
-$page = new Page();
-$page->index();
+// 观察者1
+class Observer1 implements \Vendor\Observer
+{
+    public  function update($info = null) {
+        echo 'luo ji 1<br>';
+    }
+}
+// 观察者2
+class Observer2 implements \Vendor\Observer
+{
+    public  function update($info = null) {
+        echo 'luo ji 2<br>';
+    }
+}
 
+$event = new Event();
+$event->addObserver(new Observer1());
+$event->addObserver(new Observer2());
+$event->trigger();
 
