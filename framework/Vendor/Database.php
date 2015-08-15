@@ -11,7 +11,10 @@ class Database
 
     public static function getInstance()
     {
-        return self::$db ? : new self();
+        if (empty(self::$db)) {
+            self::$db = new self();
+        }
+        return self::$db;
     }
     public function where($where)
     {

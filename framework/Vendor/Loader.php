@@ -4,7 +4,7 @@ namespace Vendor;
 class Loader
 {
     /**
-     * @param $class 包含命名空间的类名, 由spl_autoload_register传入
+     * @param $class
      *
      * @ example "App\Controller\Home\Index"
      * @ example "Vendor\Object"
